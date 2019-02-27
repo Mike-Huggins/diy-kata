@@ -1,23 +1,21 @@
-const { reachDestination } = require('../src');
+//Okay test coverage but there should be a couple more tests
+//You could also stack these tests to make this a more DRY process
+//like you did in other tests
+//See example:
+
+const {
+  reachDestination
+} = require('../src');
 
 describe('reachDestination', () => {
-  xit('returns string with estimated time of arrival', () => {
-    expect(reachDestination(10,5)).toEqual("I should be there in 2 hours");
-      });
-  xit('returns string with estimated time of arrival', () => {
-   expect(reachDestination(15,7)).toEqual("I should be there in 2.5 hours");
-          });
-  xit('returns string with estimated time of arrival', () => {
-    expect(reachDestination(24,7)).toEqual("I should be there in 3.5 hours");
-              });
-  xit('returns string with estimated time of arrival', () => {
-    expect(reachDestination(100,15)).toEqual("I should be there in 7 hours");
-                  });
-  xit('returns string with estimated time of arrival', () => {
-    expect(reachDestination(-10,-25)).toEqual("Negative numbers make no sense, have you gone past the house or are already there!?!");
-                  });
-  xit('returns string with estimated time of arrival', () => {
-    expect(reachDestination(0,0)).toEqual("You have already arrived or you are not moving so can't calculate eta!"
-    );
-                      });  
+  it('returns string with estimated time of arrival', () => {
+    expect(reachDestination(60, 60)).toBe('I\'ll be there in 1 hour');
+    //expect(reachDestination(124, 55)).toBe(`I\'ll be there in 2 hour`);
+
+  });
+
+  it('returns a string explaining how long before arrival', () => {
+    expect(reachDestination(124, 55)).toBe(`I\'ll be there in 2 hour`);
+
+  })
 });
